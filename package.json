@@ -7,5 +7,15 @@
     "author": "Microsoft",
     "scripts": {
         "start": "node index.js"
+    },
+    "dependencies": {
+        "body-parser": "^1.18.3",
+        "cookie-parser": "^1.4.3",
+        "ejs": "^2.6.1",
+        "express": "^4.16.3",
+        "express-session": "^1.15.6",
+        "letsnet-services": "^2.1.24",
+        "uuid-v4": "^0.1.0",
+        "waypoints": "^4.0.1"
     }
 }

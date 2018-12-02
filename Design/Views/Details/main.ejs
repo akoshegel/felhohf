@@ -1,0 +1,224 @@
+<style media="screen">
+  label{
+    white-space: nowrap;
+  }
+  label.form-check-label{
+    white-space: normal;
+  }
+  .frontend-section.row{
+    margin: 0;
+  }
+  .hidden{
+    display: none;
+  }
+  #paymentName{
+    display: none
+  }
+</style>
+<main data-cart-id="<%=data.cartID%>">
+  <div class="frontend-section" style="min-height: 30vh">
+    <div class="section-header color-blue">Adatok</div>
+    <div class="shipping row align-items-center flex-column">
+      <form class="col-md-6 col-sm-11">
+        <div class="form-group row">
+          <div class="col-6">
+            <label for="lastName">Vezetéknév *</label>
+            <input type="text" class="form-control" id="lastName" placeholder="Vezetéknév...">
+          </div>
+          <div class="col-6">
+            <label for="firstName">Keresztnév *</label>
+            <input type="text" class="form-control" id="firstName" placeholder="Kersztnév...">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email *</label>
+          <input type="email" class="form-control" id="email" placeholder="Email...">
+        </div>
+        <div class="form-group">
+          <label for="phone">Telefonszám *</label>
+          <input type="phone" class="form-control" id="phone" placeholder="Telefonszám...">
+        </div>
+        <div class="form-group row">
+          <div class="col-4">
+            <label for="lastName">Születési év *</label>
+            <select class="form-control" id="birthYear">
+              <script>
+                var thisYear = new Date().getFullYear()
+                for (var i = thisYear - 18; i >= 1940 ; i--) {
+                  $('#birthYear').append(
+                    `<option value="${i}">${i}</option>`
+                  )
+                }
+              </script>
+            </select>
+          </div>
+          <div class="col-4">
+            <label for="firstName">Hónap *</label>
+            <select class="form-control" id="birthMonth">
+              <option value="1">Január</option>
+              <option value="2">Február</option>
+              <option value="3">Március</option>
+              <option value="4">Április</option>
+              <option value="5">Május</option>
+              <option value="6">Június</option>
+              <option value="7">Július</option>
+              <option value="8">Augusztus</option>
+              <option value="9">Szeptember</option>
+              <option value="10">Október</option>
+              <option value="11">November</option>
+              <option value="12">December</option>
+            </select>
+          </div>
+          <div class="col-4">
+            <label for="firstName">Nap *</label>
+            <input type="number" class="form-control" id="birthDay" placeholder="Születési nap..." min="0" max="31">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="shipping">Szállítási mód *</label>
+            <select class="form-control" id="shipping">
+              <option value="placeholder">Válasszon szállítási módot...</option>
+              <!--<option value="postal">Postai úton</option>-->
+              <option value="personal">Személyes átvétel egyik üzletünkben</option>
+            </select>
+        </div>
+      </form>
+      <form class="col-md-6 col-sm-11">
+        <div class="form-group">
+          <label for="mainCity">Város *</label>
+          <input type="text" class="form-control" id="mainCity" placeholder="Város...">
+        </div>
+        <div class="form-group row">
+          <div class="col-md-3 form-group">
+            <label for="mainZip">Irányítószám *</label>
+            <input type="text" class="form-control" id="mainZip" placeholder="Irányítószám...">
+          </div>
+          <div class="col-md-6 form-group">
+            <label for="mainStreet">Közterület neve *</label>
+            <input type="text" class="form-control" id="mainStreet" placeholder="Utca...">
+          </div>
+          <div class="col-md-3 form-group">
+            <label for="mainAddress">Házszám *</label>
+            <input type="text" class="form-control" id="mainAddress" placeholder="Házszám...">
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="frontend-section bg-gray" style="min-height: 30vh">
+    <div class="section-header color-blue">Szállítás és fizetés</div>
+    <div class="shipping row justify-content-around" id="shippingDetails">
+      <form class="col-md-5 hidden" id="shippingModePersonal">
+        <input type="radio"name="shop" value="allee" id="allee">
+        <label class="property form-check-label" for="allee">
+          <span class="property-title">Allee bevásárlóközpont</span>
+          <span class="property-value">Október 23. utca 8-10</span>
+        </label>
+        <input type="radio" name="shop" value="arkad" id="arkad">
+        <label class="property form-check-label" for="arkad">
+          <span class="property-title">Árkád Budapest</span>
+          <span class="property-value">Örs vezér tere 25.</span>
+        </label>
+      </form>
+      <div class="col-md-6 col-sm-11 hidden" id="shippingModePostal">
+        <span>Szállítási cím:</span>
+        <div class="form-group">
+          <input checked type="checkbox" id="usePostalAddress">
+          <label class="form-check-label" for="usePostalAddress">
+          Használja a korábban megadott címet
+          </label>
+        </div>
+        <form class="hidden" id="postalAddressForm">
+          <div class="form-group">
+            <label for="city">Város *</label>
+            <input type="text" class="form-control" id="city" placeholder="Város...">
+          </div>
+          <div class="form-group row">
+            <div class="col-md-3 form-group">
+              <label for="zip">Irányítószám *</label>
+              <input type="text" class="form-control" id="zip" placeholder="Irányítószám...">
+            </div>
+            <div class="col-md-6 form-group">
+              <label for="street">Közterület neve *</label>
+              <input type="text" class="form-control" id="street" placeholder="Utca...">
+            </div>
+            <div class="col-md-3 form-group">
+              <label for="address">Házszám *</label>
+              <input type="text" class="form-control" id="address" placeholder="Házszám...">
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="col-md-6 col-sm-11 hidden" id="paymentDetails">
+        <div class="form-group">
+          <label for="paying">Fizetési mód *</label>
+            <select class="form-control" id="paying">
+            </select>
+        </div>
+        <label>Számlázási cím:</label>
+        <div class="form-group">
+          <input checked type="checkbox" id="usePostalAddressPayment">
+          <label class="form-check-label" for="usePostalAddressPayment">
+          Használja a korábban megadott címet
+          </label>
+        </div>
+        <label>Számlázási név:</label>
+        <div class="form-group">
+          <input checked type="checkbox" id="useName">
+          <label class="form-check-label" for="useName">
+          Használja a korábban megadott nevet
+          </label>
+        </div>
+        <div class="hidden" id="paymentName">
+          <div class="form-group row">
+            <div class="col-6">
+              <label for="lastNamePayment">Vezetéknév *</label>
+              <input type="text" class="form-control" id="lastNamePayment" placeholder="Vezetéknév...">
+            </div>
+            <div class="col-6">
+              <label for="firstNamePayment">Keresztnév *</label>
+              <input type="text" class="form-control" id="firstNamePayment" placeholder="Kersztnév...">
+            </div>
+          </div>
+        </div>
+        <form class="hidden" id="paymentAddressForm">
+          <div class="form-group">
+            <label for="paymentCity">Város *</label>
+            <input type="text" class="form-control" id="paymentCity" placeholder="Város...">
+          </div>
+          <div class="form-group row">
+            <div class="col-md-3">
+              <label for="paymentZip">Irányítószám *</label>
+              <input type="text" class="form-control" id="paymentZip" placeholder="Irányítószám...">
+            </div>
+            <div class="col-md-6">
+              <label for="paymentStreet">Közterület neve *</label>
+              <input type="text" class="form-control" id="paymentStreet" placeholder="Utca...">
+            </div>
+            <div class="col-md-3">
+              <label for="paymentAddress">Házszám *</label>
+              <input type="text" class="form-control" id="paymentAddress" placeholder="Házszám...">
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="frontend-section row justify-content-center">
+    <form class="col-md-6">
+      <div class="form-group">
+        <input type="checkbox" id="aszf">
+        <label class="form-check-label" for="aszf">Az Általános Szerződési Feltételeket (ÁSZF)
+          és az adatvédelmi és adatkezelési szabályzatot tudomásul vettem, azokat elfogadom. *</label>
+      </div>
+      <div class="form-group">
+        <input type="checkbox" id="data">
+        <label class="form-check-label" for="data">Az adatvédelmi és adatkezelési
+          szabályzatot tudomásul vettem, azokat elfogadom. *</label>
+      </div>
+      <div class="form-group">
+        <button type="button" class="button button-red w-100 disabled" id="next">Tovább</button>
+      </div>
+    </form>
+  </div>
+</main>

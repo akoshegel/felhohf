@@ -1,0 +1,39 @@
+.property{
+  padding: 3vh 0 0 5vw;
+  border-bottom: 1px solid rgba(33, 37, 41, .2);
+}
+.property:nth-last-child(1){
+  border: 0;
+}
+.property .property-title{
+  font-size: 1.4em;
+  color: #021f4f;
+  margin-bottom: 2vh;
+  text-transform: uppercase;
+}
+.property .property-name, .property .property-value{
+  font-size: 1.1em;
+  margin-bottom: 5px;
+}
+.property .property-name{
+  font-weight: bolder;
+  margin-right: 15px;
+  width: 13.5rem;
+  min-width: 120px;
+  text-align: left;
+}
+.products .image-cell .image-holder{
+  max-height: 90px;
+}
+.properties{
+  max-width: 100%;
+}
+.table-holder{
+  overflow-x: auto;
+}
+@media screen and (max-device-width: 400px) {
+  html{
+    font-size: 10px;
+    overflow-x: hidden;
+  }
+}

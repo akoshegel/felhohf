@@ -1,0 +1,53 @@
+body{
+  background: white;
+}
+.products-container{
+  overflow-x: auto;
+}
+.products tr{
+  padding: 1rem 0;
+}
+.products tr td{
+  vertical-align: middle;
+}
+.products tr td span{
+  white-space: nowrap;
+}
+.products .image-cell{
+  width: 180px;
+}
+.products .image-cell .image-holder{
+  width: inherit;
+  max-height: 150px;
+  display: flex;
+}
+.products .image-cell img{
+  object-fit: contain;
+  max-width: 100%;
+  max-height: 100%;
+}
+.quantity{
+  width: 80px;
+  box-shadow: none!important;
+}
+.products .price-cell{
+  font-size: 1.3rem;
+}
+.delete{
+  border: 1px solid rgba(0,0,0,0);
+  cursor: pointer;
+  border-radius: .25rem;
+  transition: all ease-in-out .12s;
+  padding: 1rem;
+}
+.delete:hover{
+  border-color: rgba(0,0,0,.125);
+}
+.summary{
+  font-size: 1.6em;
+  padding: 2rem 0;
+}
+#sum{
+  margin-left: 15px;
+  font-size: 2.1rem;
+}

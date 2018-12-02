@@ -1,0 +1,138 @@
+#background-image{
+  height: 100vh;
+  width: 100vw;
+  z-index: -1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-image: url("/images/backgrounds/bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+.watch-images{
+  flex-wrap: nowrap;
+}
+.image-holder{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5%;
+}
+.main-image-holder{
+  height: 80vh;
+}
+.image-holder > img{
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}
+.side-images{
+  padding-top: 5vh;
+}
+.side-image-holder{
+  opacity: .8;
+  height: calc(10rem - 50px);
+  width: calc(10rem - 50px);
+  border-radius: .125rem;
+  border: 1px solid rgba(33, 37, 41, .2);
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: all ease-in-out .15s;
+}
+.side-image-holder:hover{
+  opacity: 1;
+}
+.watch-property-section{
+  padding: 3vh 0;
+  border-bottom: 1px solid rgba(33, 37, 41, .2);
+}
+.watch-property-section:nth-last-child(1){
+  border: 0;
+}
+.watch-property-section .name{
+  text-transform: uppercase;
+  font-size: 1.3rem;
+}
+.watch-property-section .brand{
+  font-size: 1.1rem;
+}
+.watch-property-section .price{
+  font-size: 1.6rem;
+}
+#buy{
+  width: 300px;
+  margin-right: 20px;
+}
+#buy .fa{
+  margin-right: 10px;
+}
+.quantity{
+  width: 80px;
+  height: fit-content;
+  box-shadow: none!important;
+}
+.details{
+  padding: 0 10vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.property{
+  padding: 3vh 0;
+  border-bottom: 1px solid rgba(33, 37, 41, .2);
+  width: 80%;
+}
+.property:nth-last-child(1){
+  border: 0;
+}
+.property .property-title{
+  font-size: 1.4em;
+  color: #021f4f;
+  margin-bottom: 2vh;
+  text-transform: uppercase;
+}
+.property .property-name, .property .property-value{
+  font-size: 1.1em;
+  margin-bottom: 5px;
+}
+.property .property-name{
+  font-weight: bolder;
+  margin-right: 15px;
+  width: 11rem;
+  min-width: 11rem;
+}
+#inCartIcon{
+  font-size: 1.5rem;
+  margin: .5rem;
+  z-index: 20;
+  position: fixed;
+  font-weight: bolder;
+  width: 2rem;
+  height: 2rem;
+  display: none;
+}
+
+.triggerAnimation {
+  display: block!important;
+  animation: inCart .8s ease-in-out forwards;
+  left: auto!important;
+}
+
+.additional-information{
+  color: rgb(220, 20, 40);
+  font-size: .8em;
+  margin-top: .5em;
+}
+
+@keyframes inCart {
+  0% { color: white }
+  30% { color: rgb(220, 20, 40); }
+  60% { opacity: 1}
+  100% { top: .75rem; right: 2.2rem; opacity: 0; color: rgb(220, 20, 40); }
+}
+
+.jew-background {
+  background-image: url("/images/backgrounds/jewellery-background2.jpg")!important;
+}

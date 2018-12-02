@@ -1,0 +1,47 @@
+@media screen and (max-width: 850px) {
+  .nav-holder{
+    display: none;
+  }
+  .toggle-button{
+    display: flex;
+  }
+  .contacts .property{
+    margin: 0 5vw;
+    font-size: .8rem;
+  }
+}
+@media screen and (min-width: 850px) {
+  .navbar-phone{
+    display: none!important
+  }
+}
+@media screen and (max-width: 500px) {
+  html{
+    font-size: 12px;
+  }
+  .index .row, .main-watches .row, .main-watch .row{
+    margin: 0;
+  }
+  footer .footer-nav{
+    display: none!important;
+  }
+  .details{
+    padding: 0 3vw;
+  }
+  .details .property{
+    width: 100%;
+  }
+  .watch-images .main-image-holder{
+    height: 100%;
+  }
+}
+@media screen and (min-width: 1450px) {
+  html{
+    font-size: 23px;
+  }
+}
+@media screen and (min-width: 2500px) {
+  html{
+    font-size: 30px;
+  }
+}

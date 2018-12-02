@@ -1,0 +1,3 @@
+<% if(view.current.mainFooter) { %><%- include("../footers/main.ejs") %><% } %><% view.current.files.footers.forEach(function(obj) { %><%- include("../footers/" + obj + ".ejs")%><% }) %>
+    </body>
+</html>

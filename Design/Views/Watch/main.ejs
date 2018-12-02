@@ -1,0 +1,59 @@
+<main class="main-watch" data-prod-id = "<%=data.prodID%>">
+  <div class="frontend-section window">
+    <h1 id="pageTitle"></h1>
+  </div>
+  <div class="frontend-section row">
+    <div class="col-md-6 watch-images row">
+      <div class="side-images col-md-4 d-flex flex-column" id="sideImages">
+
+      </div>
+      <div class="image-holder main-image-holder col-md-8" id="mainImage">
+
+      </div>
+    </div>
+    <style type="text/css">
+      .name {
+        margin-right: 15px;
+      }
+
+      #watch-id {
+        opacity: 0.7;
+      }
+    </style>
+    <div class="col-md-6 watch-main-properties frontend-section">
+      <div class="watch-property-section">
+        <span class="name" id="watch-name"></span><span class="name">-</span><span class="name" id="watch-id"></span>
+      </div>
+      <div class="watch-property-section">
+        <span class="brand" id="watch-brand"></span>
+      </div>
+      <div class="watch-property-section">
+        <span class="price" id="watch-price"></span>
+      </div>
+      <div class="watch-property-section d-flex justify-content-between">
+        <div class="d-flex align-items-center flex-column">
+          <button type="button" class="button button-red" id="buy"><i class="fa fa-fw fa-shopping-cart"> </i>Kosárba</button>
+          <span class="additional-information" id="additionalInformation"></span>
+        </div>
+        <input type="number" class="form-control quantity" id="quantity" value="1" min="1">
+        <div id="inCartIcon">
+          <i class="fa fa-fw fa-shopping-cart"> </i>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="frontend-section bg-gray">
+    <div class="section-header">
+      Részletek
+    </div>
+    <div class="details"></div>
+  </div>
+  <div class="frontend-section d-flex flex-column align-items-center">
+    <div class="section-header color-blue">
+      Hasonló termékek
+    </div>
+    <div class="col-10 justify-content-center row section-body appearable" id="relatedProductsSection">
+
+    </div>
+  </div>
+</main>

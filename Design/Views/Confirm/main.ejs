@@ -1,0 +1,112 @@
+<main data-cart-id="<%=data.cartID%>">
+  <div class="frontend-section">
+    <div class="section-header">
+      Vásárló adatai
+    </div>
+    <div style="font-size: 1.2em">
+      <div class="property row justify-content-center">
+        <div class="properties">
+          <div class="d-flex">
+            <span class="property-name">Név: </span>
+            <span class="property-value"><%=data.order.userDetails.name.first + ' ' + data.order.userDetails.name.last%></span>
+          </div>
+          <div class="d-flex">
+            <span class="property-name">Email: </span>
+            <span class="property-value"><%=data.order.userDetails.email%></span>
+          </div>
+          <div class="d-flex">
+            <span class="property-name">Telefonszám: </span>
+            <span class="property-value"><%=data.order.userDetails.phone%></span>
+          </div>
+          <div class="d-flex">
+            <span class="property-name">Cím: </span>
+            <span class="property-value">
+              <%=`${data.order.userDetails.address.city}, ${data.order.userDetails.address.postCode} ${data.order.userDetails.address.street} ${data.order.userDetails.address.streetNumber}.`%>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="frontend-section">
+    <div class="section-header">
+      Rendelés adatai
+    </div>
+    <div style="font-size: 1.2em">
+      <div class="property row justify-content-center">
+        <div class="properties">
+          <div class="d-flex">
+            <span class="property-name">Átvétel: </span>
+            <span class="property-value">
+              <%=(data.order.orderDetails.mode == 'postal' ? 'Postai úton' :
+                  data.order.orderDetails.mode == 'personal' ? 'Személyesen' : 'unknown')%>
+            </span>
+          </div>
+          <div class="d-flex">
+            <span class="property-name">Átvétel helyszíne: </span>
+            <span class="property-value">
+              <%=`${data.order.orderDetails.address.city}, ${data.order.orderDetails.address.postCode} ${data.order.orderDetails.address.street} ${data.order.orderDetails.address.streetNumber}.`%>
+            </span>
+          </div>
+          <div class="d-flex">
+            <span class="property-name">Fizetés módja: </span>
+            <span class="property-value">
+              <%=(data.order.paymentDetails.mode == 'online_bank' ? 'Bankkártyás előreutalás' :
+                  data.order.paymentDetails.mode == 'personal' ? 'Személyes utóvétel' : 'unknown')%>
+            </span>
+          </div>
+          <div class="d-flex">
+            <span class="property-name">Számlázási név: </span>
+            <span class="property-value"><%=data.order.paymentDetails.invoice.name.first + ' ' + data.order.paymentDetails.invoice.name.last%></span>
+          </div>
+          <div class="d-flex">
+            <span class="property-name">Számlázási cím: </span>
+            <span class="property-value">
+              <%=`${data.order.paymentDetails.invoice.address.city}, ${data.order.paymentDetails.invoice.address.postCode} ${data.order.paymentDetails.invoice.address.street} ${data.order.paymentDetails.invoice.address.streetNumber}.`%>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="frontend-section row justify-content-center">
+    <div class="section-body col-md-8 col-sm-11">
+      <div class="section-header">
+        Termékek
+      </div>
+      <div class="table-holder">
+        <table class="products table" id="products">
+          <thead>
+            <tr>
+              <td class="image-cell"></td>
+              <td><span>Név</span></td>
+              <td><span>Mennyiség</span></td>
+              <td><span>Összesen</span></td>
+            </tr>
+          </thead>
+          <tbody>
+            <% for (product of data.cart.products) {%>
+              <tr data-id = <%=product.id%>>
+                <td class="image-cell">
+                  <div class="image-holder">
+                    <img src alt="">
+                  </div>
+                </td>
+                <td class="name"></td>
+                <td class="quantity"><%=product.quantity%></td>
+                <td class="price"></td>
+              </tr>
+            <%}%>
+          </tbody>
+        </table>
+
+      </div>
+      <div class="d-flex justify-content-end align-items-center summary">
+        <span>Összesen: <%=data.cart.sum%> Ft</span>
+      </div>
+      <div class="d-flex justify-content-end">
+        <button type="button" class="button button-red w-100" id="next">Vásárlás megerősítése</button>
+      </div>
+    </div>
+  </div>
+</main>

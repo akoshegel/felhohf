@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="<%= view.current.lang %>">
+    <head>
+        <title><%= view.current.title %></title>
+        <% for(obj in view.current.meta) { %><% if(obj == "charset") { %><meta charset="<%= view.current.meta[obj] %>">  <% } else { %><meta name="<%= obj %>" content="<%= view.current.meta[obj] %>"> <% } %>
+        <% } %>
+        <% for(obj in view.current.og) { %><meta property="og:<%= obj %>" content="<%= view.current.og[obj] %>" >
+        <% } %>
+        <% for(obj in view.current.cards) { %><meta property="cards:<%= obj %>" content="<%= view.current.cards[obj] %>" >
+        <% } %>
+        <% if(view.current.mainJSON) {
+            view.mainViewJSON.css.forEach(function(css) { %>
+        <link rel="stylesheet" type="text/css" href="<%= css %>">
+            <% })
+            view.mainViewJSON.js.forEach(function(js) { %>
+        <script  type="text/javascript" src="<%= js %>"></script>
+            <% })
+            view.mainViewJSON.fonts.forEach(function(font) { %>
+        <link href="<%= font %>" rel="stylesheet">
+            <% })
+        } %>
+        <% view.current.css.forEach(function(obj) { %><link rel="stylesheet" type="text/css" href="<%= obj %>">
+        <% }) %>
+        <% view.current.fonts.forEach(function(obj) { %><link href="<%= obj %>" rel="stylesheet"><% }) %>
+        <% view.current.js.forEach(function(obj) { %><script type="text/javascript" src="<%= obj %>"></script><% }) %>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-125426821-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-125426821-1');
+        </script>
+        <!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window,document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+     fbq('init', '2003084856386220'); 
+    fbq('track', 'PageView');
+    </script>
+    <noscript>
+     <img height="1" width="1" 
+    src="https://www.facebook.com/tr?id=2003084856386220&ev=PageView
+    &noscript=1"/>
+    </noscript>
+    <!-- End Facebook Pixel Code -->
+    </head>
+    <body
+    <% if(data.letsnetapiurl) { %> data-letsnet-api-url="<%= data.letsnetapiurl %>" <% } %>
+    <% if(data.shopID) { %> data-shop-id="<%= data.shopID %>" <% } %>
+    <% if(data.adminClass) { %> data-auth-key="<%= data.adminClass %>" <% } %>
+    <% if(data.categoryID) { %> data-category-id="<%= data.categoryID %>" <% } %>>
+    <% if(view.current.mainHeader) { %><%- include("../headers/main.ejs") %><% } %><% view.current.files.headers.forEach(function(obj) { %><%- include("../headers/" + obj + ".ejs")%><% }) %><% view.current.files.filesToInclude.forEach(function(obj) { %><%- include("../filesToInclude/" + obj + ".ejs")%><% }) %>
