@@ -5,14 +5,9 @@
         "/frameworks/slick/slick-theme.css",
         "/frameworks/fontawesome/web-fonts-with-css/css/fontawesome-all.min.css",
         "/frameworks/jquery-3.3.1/jquery-ui.min.css",
-        "/css/main.css",
-        "/css/responsive.css"
+        "/css/main.css"
     ],
     "fonts": [
-        "https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900",
-        "https://fonts.googleapis.com/css?family=Montserrat",
-        "https://fonts.googleapis.com/css?family=Montserrat:600",
-        "https://fonts.googleapis.com/css?family=Montserrat:200"
     ],
     "js": [
         "/frameworks/jquery-3.3.1/jquery.min.js",
@@ -20,9 +15,6 @@
         "https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.3/js/tether.min.js",
         "/frameworks/bootstrap-4.0.0/js/bootstrap.min.js",
         "/frameworks/slick/slick.min.js",
-        "/js/main.js",
-        "/js/shop.js",
-        "/js/cart.js",
-        "/js/product.js"
+        "/js/main.js"
     ]
 }
