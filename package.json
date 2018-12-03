@@ -6,11 +6,21 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "azure-storage": "^2.10.2",
+    "body-parser": "^1.18.3",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
     "ejs": "~2.5.7",
     "express": "~4.16.0",
+    "express-fileupload": "^1.0.0",
+    "express-session": "^1.15.6",
+    "filenamify": "^2.1.0",
+    "fileupload": "^1.0.0",
     "http-errors": "~1.6.2",
-    "morgan": "~1.9.0"
+    "mongoose": "^5.3.14",
+    "morgan": "~1.9.0",
+    "stream-length": "^1.0.2",
+    "uuid": "^3.3.2",
+    "uuid-v4": "^0.1.0"
   }
 }

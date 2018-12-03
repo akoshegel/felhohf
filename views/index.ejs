@@ -1,11 +1,48 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+    <head>
+        <title><%= title %></title>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+        <link rel='stylesheet' href='/stylesheets/style.css'/>
+        <link rel='stylesheet' href='/stylesheets/index.css'/>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>felhohf</h1>
+                    <p>-> to upload a file click on the button and select one .txt file</p>
+                    <p>-> click on the file icon if you want to dowload one of your files</p>
+                    <p><a href="/login/out">click here to logout</a></p>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 plus-icon-container">
+                            <form ref='uploadForm' ' 
+                            action='/fileupload' 
+                            method='post' 
+                            encType="multipart/form-data">
+                              <input type="file" name="txtfile" />
+                              <input type='submit' value='upload' />
+                          </form>   
+                        <p><%= data.length %> db file</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 file-holder">
+                        <%
+                            data.forEach(file => {
+                                %>
+                                <a href="/download/<%= file.name %>">
+                                    <div class="col-md-3 fileItem">
+                                        <p><%= file.name.split('-').join('.') %></p>
+                                    </div>
+                                </a>
+                                <%
+                            })
+                        %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
 </html>

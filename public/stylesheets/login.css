@@ -1,0 +1,15 @@
+.login-inputs {
+    margin-top: 1rem;
+}
+
+.input-group-text {
+    min-width: 50px;;
+    display: flex;
+    justify-content: center;
+}
+
+.login-btn {
+    margin-top: 0.7rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+}

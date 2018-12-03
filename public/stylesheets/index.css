@@ -1,0 +1,35 @@
+.plus-icon-container {
+    margin: 2rem 0;
+}
+
+.file-holder {
+    width: 100%;
+    height: 65vh;
+    background-color: rgba(33, 33, 33, 0.11);
+    border-radius: 5px;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.fileItem {
+    transition: all 0.2s;
+    padding: 3rem;
+    background-color: #222;
+    border-radius: 5px;
+    color: white;
+    margin: 2rem 1rem;
+}
+
+.file-holder a {
+    text-decoration: none;
+}
+
+.fileItem:hover {
+    transition: all 0.2s;
+    background-color: rgba(33, 33, 33, 0.86);
+    border-radius: 20px;
+}
+
