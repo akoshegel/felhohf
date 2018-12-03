@@ -4,12 +4,12 @@ const fs = require('fs');
 const storage = require('azure-storage');
 const blobService = storage.createBlobService('h0gw3qblob', 'yiMmSiiHHwWDYco5cIVGLPwyihPLbyJULDKRItV8LwSEKB3DuH3ZCEJfstEPS69e3AjK1uFZGSP9rHW6SoJu7w==');
 
-fs.mkdirSync('/tmp');
-
 class Blob {
     
     _constructor() {
         this._email = null;
+        if(!fs.existsSync(process.env.dir + '/tmp'))
+            fs.mkdirSync(process.env.dir + '/tmp');
     }
 
     setAccount(storageId) {
