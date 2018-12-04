@@ -9,6 +9,9 @@ var logger = require('morgan');
 var loginRouter = require('./routes/login');
 var indexRouter = require('./routes/index');
 
+const appInsights = require('applicationinsights');
+appInsights.setup('590a54e0-0870-43ff-8fb4-fd6c74c31bc7').start();
+
 var app = express();
 
 process.env.dir = __dirname;
