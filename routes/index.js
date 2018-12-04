@@ -49,11 +49,23 @@ router.post('/fileupload', middlewares.checkLoginRedirect, fileupload(), functio
     })
 });
 
-router.get('/download/:blobName', function(req, res) {
+router.get('/download/:blobName', middlewares.checkLoginRedirect, function(req, res) {
     blobModel.downloadFile(req.session.storageId, req.params.blobName)
     .then(data => {
         if(data.code == 2) {
             res.sendFile(data.file);
+        }
+    })
+    .catch(err => {
+        console.log(err);
+    })
+});
+
+router.get('/delete', middlewares.checkLoginRedirect, function(req, res) {
+    blobModel.deleteBlob(req.session.storageId, req.query.blobName.split('.').join('-'))
+    .then(data => {
+        if(data.code == 2) {
+            res.redirect('/');
         }
     })
     .catch(err => {

@@ -122,6 +122,26 @@ class Blob {
         })
     }
 
+    deleteBlob(storageId, blobName) {
+        return new Promise((resolve, reject) => {
+            const containerName = `${storageId}-container`;
+            blobService.deleteBlobIfExists(containerName, blobName, err => {
+                if(err) {
+                    console.log(err);
+                    reject({
+                        code: 1,
+                        msg: 'Connection error.'
+                    });
+                } else {
+                    resolve({
+                        code: 2,
+                        message: 'Blob successfully deleted.'
+                    });
+                }
+            });
+        })
+    }
+
 }
 
 module.exports = new Blob();

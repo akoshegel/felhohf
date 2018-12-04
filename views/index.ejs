@@ -17,15 +17,23 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12 plus-icon-container">
-                            <form ref='uploadForm' ' 
+                            <form ref='uploadForm'
                             action='/fileupload' 
                             method='post' 
                             encType="multipart/form-data">
                               <input type="file" name="txtfile" />
                               <input type='submit' value='upload' />
                           </form>   
-                        <p><%= data.length %> db file</p>
+                        </div>
                     </div>
+                    <div class="row">
+                        <div class="col-md-12 plus-icon-container">
+                            <form action='/delete' method='get' encType="multipart/form-data">
+                                <input type="text" name="blobName" />
+                                <input type='submit' value='delete file'/>
+                            </form>   
+                        </div>
+                        <p><%= data.length %> file</p>
                 </div>
                 <div class="row">
                     <div class="col-md-12 file-holder">
