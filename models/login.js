@@ -37,7 +37,7 @@ class Model {
         this.loggedInSchema = this._connection.model('loggedIn', new mongoose.Schema({
             _class: String,
             email: String,
-            loggedInTime: Date
+            loggedInTime: Number
         }), 'logindata');
     }
 
@@ -75,7 +75,8 @@ class Model {
                             else {
                                 const newLoginUser = new this.loggedInSchema({
                                     _class: '_logged.d',
-                                    email: email
+                                    email: email,
+                                    loggedInTime: new Date().getTime()
                                 });
                                 newLoginUser.save(err => {
                                     if(err) {
